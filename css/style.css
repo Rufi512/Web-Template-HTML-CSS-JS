@@ -24,7 +24,30 @@ body {
             flex-direction: column;
 }
 
+.bar-top{
+    position:fixed;
+    width:100%;
+    background:#272727;
+    color:white;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    padding:5px 0px;
+    z-index:2;
+}
 
+.bar-top :is(h2,label){
+    margin:0;
+}
+
+.bar-top h2{
+    margin-left:auto;
+    margin-right:5px;
+}
+
+.bar-top label{
+    margin-left:5px;
+}
 
 nav {
     margin: -5px 0;
@@ -85,11 +108,6 @@ nav div ul li a:hover{
     display: none;
 }
 
-.checkbox {
-    display: none;
-}
-
-
 .content-text {
     width: 100%;
     margin: 0 auto;
@@ -148,7 +166,7 @@ nav div ul li a:hover{
 
 
 .boxs {
-    margin-top: 80px;
+    margin-top: 20px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -163,8 +181,10 @@ nav div ul li a:hover{
 
 .boxs .container-elements {
     position: relative;
-    width: 300px;
-    height: 100%;
+    width: 80%;
+    height: fit-content;
+    min-height:290px;
+    max-width:245px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -178,7 +198,7 @@ nav div ul li a:hover{
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 35px 4px;
+    padding: 45px 4px;
     margin: 10px 5px;
     background-color: whitesmoke;
     border-radius: 8px;
@@ -202,8 +222,9 @@ nav div ul li a:hover{
 
 
 .boxs .container-elements img {
-    width: 95%;
-    height: 390px;
+    width: 85%;
+    max-height:340px;
+    height:100vh;
     z-index: 1;
     border-radius: 10px;
     -webkit-transform: translateY(0px);
@@ -258,11 +279,13 @@ nav div ul li a:hover{
     left: 0;
     right: 0;
     bottom: 0;
+    text-align: center;
+    font-size: 17px;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    opacity: 0%;
+    opacity: 0;
     -webkit-transform: translateY(-40px);
         -ms-transform: translateY(-40px);
             transform: translateY(-40px);
@@ -271,13 +294,10 @@ nav div ul li a:hover{
     transition: 0.5s all ease;
 }
 
-.text-box {
-    text-align: center;
-    font-size: 17px;
-}
+
 
 .boxs .container-elements img:hover~.text-box {
-    opacity: 100%;
+    opacity: 1;
     -webkit-transform: translateY(0px);
         -ms-transform: translateY(0px);
             transform: translateY(0px);
@@ -301,11 +321,12 @@ footer {
 }
 
 footer h3 {
-    font-weight: 400;
+    font-weight: 600;
+    color: #e6e6e6;
 }
 
 .social-media {
-    width: 110px;
+    width: 120px;
 }
 
 .social-media div {
@@ -388,6 +409,8 @@ label {
 /*Break Point*/
 
 @media(max-width: 670px) {
+   
+
     .content-text {
         margin-top: 145px;
     }
@@ -428,11 +451,12 @@ label {
 
 @media(max-width: 580px) {
 
-    .container h1 {
-        display: block;
-        margin-top: 30px;
-        text-align: center;
-        color: #e8e8e8;
+     .container h1{
+        display:none;
+    }
+    
+    .bar-top{
+        display:flex;
     }
 
     nav {
@@ -509,15 +533,6 @@ label {
 
     }
 
-    
-    .checkbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: block;
-        z-index: 1;
-    }
-
     .checkbox i {
         font-size: 28px;
     }
@@ -543,21 +558,36 @@ label {
 
 }
 
-
-@media(max-width: 450px) {
-    .container-elements {
-        width: 280px !important;
+@media(max-width: 440px){
+    .container-elements{
+        width:75% !important;
+        max-height: 280px;
+        max-width:225px !important;
+        padding:20px 0px !important;
+        
     }
 
-    .container-elements img {
-        height: 355px !important;
+    .container-elements img{
+        width:80% !important;
+        min-width:130px;
+        height: 275px !important;
     }
-}
+
+    .boxs .container-elements:nth-child(2),
+    .boxs .container-elements:nth-child(3),
+    .boxs .container-elements:nth-child(4){
+        margin-top:35px;
+    }
+
+    .text-box{
+        font-size:14px;
+    }
+} 
 
 @media(max-width: 355px) {
 
     footer p,
     footer a {
-        font-size: 4vw;
+        font-size: 12px;
     }
 }
